@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cursodevsuperior</groupId>
-	<artifactId>DSList</artifactId>
+	<artifactId>dslist</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DSList</name>
 	<description>Intensivão Java Spring</description>
