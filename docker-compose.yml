@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  pg-dev:
+    image: postgres:latest
+    container_name: postgres-dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: intensivao
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dev-network
+
+  pgadmin-dev:
+    image: dpage/pgadmin4
+    container_name: pgadmin-dev
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "7070:80"
+    depends_on:
+      - pg-dev
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - dev-network
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
+networks:
+  dev-network:
+    driver: bridge
