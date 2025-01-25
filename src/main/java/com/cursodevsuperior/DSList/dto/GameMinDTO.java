@@ -1,19 +1,16 @@
 package com.cursodevsuperior.DSList.dto;
 
 import com.cursodevsuperior.DSList.entities.Game;
+import com.cursodevsuperior.DSList.projection.GameMinProjection;
 import org.springframework.beans.BeanUtils;
 
 public class GameMinDTO {
 
     private Long id;
     private String title;
-    private Integer year;
-    private String genre;
-    private String platforms;
-    private Double score;
+    private String gameYear;
     private String imgUrl;
     private String shortDescription;
-    private String longDescription;
 
     public GameMinDTO() {}
 
@@ -21,39 +18,48 @@ public class GameMinDTO {
         BeanUtils.copyProperties(gameEntity, this);
     }
 
+    public GameMinDTO (GameMinProjection gameMinProjection) {
+        BeanUtils.copyProperties(gameMinProjection, this);
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public Integer getYear() {
-        return year;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getGameYear() {
+        return gameYear;
     }
 
-    public String getPlatforms() {
-        return platforms;
-    }
-
-    public Double getScore() {
-        return score;
+    public void setGameYear(String gameYear) {
+        this.gameYear = gameYear;
     }
 
     public String getImgUrl() {
         return imgUrl;
     }
 
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public String getShortDescription() {
         return shortDescription;
     }
 
-    public String getLongDescription() {
-        return longDescription;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
+
 }
